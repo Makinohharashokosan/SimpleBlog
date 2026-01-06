@@ -1,0 +1,6 @@
+/* src/assets/styles/main.css */
+
+@import './_variables.css';
+@import './_base.css';
+
+/* 您可以在此之下添加更多全局样式模块 */
