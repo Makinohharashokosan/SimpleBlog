@@ -31,7 +31,6 @@
 ```bash
 git clone https://github.com/makinohharashoko/SimpleBlog.git
 cd SimpleBlog/frontend
-```
 
 ### 2. 安装依赖
 ```bash
