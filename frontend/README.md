@@ -30,7 +30,7 @@
 ### 1. 克隆项目
 ```bash
 git clone https://github.com/makinohharashoko/SimpleBlog.git
-cd vue-art-blog-template
+cd SimpleBlog/frontend
 ```
 
 ### 2. 安装依赖
