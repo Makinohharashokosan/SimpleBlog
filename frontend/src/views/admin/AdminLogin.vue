@@ -1,9 +1,9 @@
 <template>
   <div class="login-container">
     <!-- Artistic Background Elements -->
-    <div class="bg-shape shape-1"></div>
-    <div class="bg-shape shape-2"></div>
-    <div class="bg-shape shape-3"></div>
+    <div class="bg-shape shape-1" />
+    <div class="bg-shape shape-2" />
+    <div class="bg-shape shape-3" />
 
     <!-- Global Controls -->
     <div class="global-controls">
@@ -11,47 +11,64 @@
       <LanguageSwitcher />
     </div>
 
-    <div class="login-card" :class="{ 'shake': hasError }">
+    <div
+      class="login-card"
+      :class="{ 'shake': hasError }"
+    >
       <header class="login-header">
-        <h1 class="title">{{ $t('admin.login.title') }}</h1>
-        <p class="subtitle">Enter the realm of creation</p>
+        <h1 class="title">
+          {{ $t('admin.login.title') }}
+        </h1>
+        <p class="subtitle">
+          Enter the realm of creation
+        </p>
       </header>
       
-      <form @submit.prevent="handleLogin" class="login-form">
+      <form
+        class="login-form"
+        @submit.prevent="handleLogin"
+      >
         <div class="input-group">
           <input 
-            type="text" 
-            v-model="username"
+            v-model="username" 
+            type="text"
             required
             class="input-field"
             placeholder=" "
-          />
+          >
           <label class="input-label">{{ $t('admin.login.username') }}</label>
-          <span class="input-highlight"></span>
+          <span class="input-highlight" />
         </div>
         
         <div class="input-group">
           <input 
-            type="password" 
-            v-model="password"
+            v-model="password" 
+            type="password"
             required
             class="input-field"
             placeholder=" "
-          />
+          >
           <label class="input-label">{{ $t('admin.login.password') }}</label>
-          <span class="input-highlight"></span>
+          <span class="input-highlight" />
         </div>
         
         <transition name="fade">
-          <div v-if="errorMessage" class="error-message">
+          <div
+            v-if="errorMessage"
+            class="error-message"
+          >
             <span class="error-icon">⚠</span>
             {{ $t('admin.login.error') }}
           </div>
         </transition>
 
-        <button type="submit" class="login-button" :disabled="isLoading">
+        <button
+          type="submit"
+          class="login-button"
+          :disabled="isLoading"
+        >
           <span class="btn-text">{{ isLoading ? $t('admin.login.loading') : $t('admin.login.submit') }}</span>
-          <div class="btn-bg"></div>
+          <div class="btn-bg" />
         </button>
       </form>
     </div>
@@ -72,8 +89,9 @@ onMounted(() => {
   initTheme();
 });
 
-const username = ref('admin'); // Pre-fill for easier testing
-const password = ref('password'); // Pre-fill for easier testing
+const username = ref('');
+const password = ref('');
+
 const errorMessage = ref(null);
 const isLoading = ref(false);
 const hasError = ref(false);

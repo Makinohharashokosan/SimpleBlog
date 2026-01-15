@@ -1,17 +1,28 @@
 <template>
-  <div class="tags-input-wrapper" @click="focusInput">
-    <span v-for="(tag, index) in tags" :key="tag" class="tag-pill">
+  <div
+    class="tags-input-wrapper"
+    @click="focusInput"
+  >
+    <span
+      v-for="(tag, index) in modelValue"
+      :key="tag"
+      class="tag-pill"
+    >
       {{ tag }}
-      <button @click.stop="removeTag(index)" class="remove-tag-btn">×</button>
+      <button
+        class="remove-tag-btn"
+        @click.stop="removeTag(index)"
+      >×</button>
     </span>
     <input
       ref="inputRef"
       v-model="newTag"
-      @keydown.enter.prevent="addTag"
-      @keydown.backspace="handleBackspace"
       placeholder="添加标签..."
       class="tags-input"
-    />
+      @keydown.enter.prevent="addTag"
+      @keydown.backspace="handleBackspace"
+      @blur="addTag"
+    >
   </div>
 </template>
 
@@ -26,27 +37,28 @@ const props = defineProps({
 });
 const emit = defineEmits(['update:modelValue']);
 
-const tags = ref([...props.modelValue]);
 const newTag = ref('');
 const inputRef = ref(null);
 
 const addTag = () => {
   const tagToAdd = newTag.value.trim();
-  if (tagToAdd && !tags.value.includes(tagToAdd)) {
-    tags.value.push(tagToAdd);
-    emit('update:modelValue', tags.value);
+  // Check if tag exists (case-sensitive check on modelValue)
+  if (tagToAdd && !props.modelValue.includes(tagToAdd)) {
+    // Emit new array with added tag
+    emit('update:modelValue', [...props.modelValue, tagToAdd]);
   }
   newTag.value = '';
 };
 
 const removeTag = (index) => {
-  tags.value.splice(index, 1);
-  emit('update:modelValue', tags.value);
+  const newTags = [...props.modelValue];
+  newTags.splice(index, 1);
+  emit('update:modelValue', newTags);
 };
 
 const handleBackspace = () => {
-  if (newTag.value === '' && tags.value.length > 0) {
-    removeTag(tags.value.length - 1);
+  if (newTag.value === '' && props.modelValue.length > 0) {
+    removeTag(props.modelValue.length - 1);
   }
 };
 

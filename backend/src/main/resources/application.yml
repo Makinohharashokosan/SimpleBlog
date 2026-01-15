@@ -44,7 +44,7 @@ app:
       # 密码是 "password"。这里是BCrypt加密后的值。
       # 在实际生产中，你应该用自己的密码替换 "password"，然后用BCrypt生成工具得到新哈希值
       # 在线生成工具: https://www.bcryptcalculator.com/
-      password: "$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG" # 这是 "password" 的哈希
+      password: ${admin.password.hash} # 密码哈希已移至 secrets.json
     jwt:
       # 用于签发和验证JWT的密钥，生产环境中必须是一个更长、更复杂的随机字符串
       secret: ${jwt.secret}

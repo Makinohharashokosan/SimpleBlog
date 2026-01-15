@@ -1,14 +1,26 @@
 <template>
-  <router-link :to="`/article/${article.id}`" class="card-link">
+  <router-link
+    :to="`/article/${article.id}`"
+    class="card-link"
+  >
     <article class="summary-card">
       <div class="card-meta">
         <span class="date">{{ formatDate(article.createdAt) }}</span>
       </div>
       
-      <h2 class="title">{{ article.title }}</h2>
+      <h2 class="title">
+        {{ article.title }}
+      </h2>
       
-      <div v-if="article.tags && article.tags.length" class="tags-list">
-        <span v-for="tag in article.tags" :key="tag.id" class="tag-badge">
+      <div
+        v-if="article.tags && article.tags.length"
+        class="tags-list"
+      >
+        <span
+          v-for="tag in article.tags"
+          :key="tag.id"
+          class="tag-badge"
+        >
           #{{ tag.name }}
         </span>
       </div>

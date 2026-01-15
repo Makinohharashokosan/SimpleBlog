@@ -1,18 +1,38 @@
 <template>
   <div class="about-page">
     <header class="page-header">
-      <h1 class="page-title">{{ $t('titles.about_author') }}</h1>
+      <h1 class="page-title">
+        {{ $t('titles.about_author') }}
+      </h1>
     </header>
     
-    <main v-if="isLoaded" class="profile-card">
+    <main
+      v-if="isLoaded"
+      class="profile-card"
+    >
       <div class="avatar-wrapper">
-        <img :src="settings.authorAvatarUrl" :alt="settings.authorName" class="avatar" referrerpolicy="no-referrer" />
+        <img
+          :src="settings.authorAvatarUrl"
+          :alt="settings.authorName"
+          class="avatar"
+          referrerpolicy="no-referrer"
+        >
       </div>
       <div class="profile-info">
-        <h2 class="author-name">{{ settings.authorName }}</h2>
-        <p v-if="settings.authorBio" class="author-bio">{{ settings.authorBio }}</p>
+        <h2 class="author-name">
+          {{ settings.authorName }}
+        </h2>
+        <p
+          v-if="settings.authorBio"
+          class="author-bio"
+        >
+          {{ settings.authorBio }}
+        </p>
         
-        <div v-if="settings.socialLinks && settings.socialLinks.length" class="social-links">
+        <div
+          v-if="settings.socialLinks && settings.socialLinks.length"
+          class="social-links"
+        >
           <a
             v-for="link in settings.socialLinks"
             :key="link.platform"
@@ -33,7 +53,10 @@
       </div>
     </main>
     
-    <div v-else class="state-info">
+    <div
+      v-else
+      class="state-info"
+    >
       {{ $t('common.loading') }}
     </div>
   </div>

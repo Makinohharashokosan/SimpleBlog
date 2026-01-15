@@ -3,19 +3,37 @@
     <!-- 1. Stylized Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
-        <h2 class="sidebar-title">Admin Console</h2>
+        <h2 class="sidebar-title">
+          Admin Console
+        </h2>
       </div>
 
       <nav class="admin-nav">
-        <router-link to="/admin/dashboard" class="nav-item">
+        <router-link
+          to="/admin/dashboard"
+          class="nav-item"
+        >
           <span class="nav-icon">⊞</span>
           <span class="nav-text">{{ $t('admin.nav.dashboard') }}</span>
         </router-link>
-        <router-link to="/admin/articles" class="nav-item">
+        <router-link
+          to="/admin/articles"
+          class="nav-item"
+        >
           <span class="nav-icon">✎</span>
           <span class="nav-text">{{ $t('admin.nav.articles') }}</span>
         </router-link>
-        <router-link to="/admin/settings" class="nav-item">
+        <router-link
+          to="/admin/tags"
+          class="nav-item"
+        >
+          <span class="nav-icon">🏷</span>
+          <span class="nav-text">{{ $t('admin.nav.tags') }}</span>
+        </router-link>
+        <router-link
+          to="/admin/settings"
+          class="nav-item"
+        >
           <span class="nav-icon">⚙</span>
           <span class="nav-text">{{ $t('admin.nav.settings') }}</span>
         </router-link>
@@ -26,7 +44,10 @@
           <ThemeSwitcher storage-key="admin-theme" />
           <LanguageSwitcher />
         </div>
-        <button @click="handleLogout" class="logout-button">
+        <button
+          class="logout-button"
+          @click="handleLogout"
+        >
           <span class="nav-icon">⎋</span>
           {{ $t('admin.nav.logout') }}
         </button>
@@ -36,7 +57,10 @@
     <!-- 2. Main Content Area -->
     <main class="main-content">
       <router-view v-slot="{ Component }">
-        <transition name="fade-slide" mode="out-in">
+        <transition
+          name="fade-slide"
+          mode="out-in"
+        >
           <component :is="Component" />
         </transition>
       </router-view>

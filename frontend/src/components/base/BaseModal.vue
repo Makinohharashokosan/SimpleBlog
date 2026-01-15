@@ -1,16 +1,32 @@
 <template>
   <transition name="modal-fade">
-    <div v-if="show" class="modal-backdrop" @click.self="$emit('close')">
+    <div
+      v-if="show"
+      class="modal-backdrop"
+      @click.self="$emit('close')"
+    >
       <div class="modal-content">
         <header class="modal-header">
-          <h3 class="modal-title">{{ title }}</h3>
+          <h3 class="modal-title">
+            {{ title }}
+          </h3>
         </header>
         <section class="modal-body">
           <slot>This is the default body.</slot>
         </section>
         <footer class="modal-footer">
-          <button @click="$emit('close')" class="btn-secondary">取消</button>
-          <button @click="$emit('confirm')" class="btn-primary">确认</button>
+          <button
+            class="btn-secondary"
+            @click="$emit('close')"
+          >
+            取消
+          </button>
+          <button
+            class="btn-primary"
+            @click="$emit('confirm')"
+          >
+            确认
+          </button>
         </footer>
       </div>
     </div>

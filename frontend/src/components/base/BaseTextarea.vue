@@ -1,10 +1,10 @@
 <template>
   <textarea
     :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
     class="base-textarea"
     rows="3"
-  ></textarea>
+    @input="$emit('update:modelValue', $event.target.value)"
+  />
 </template>
 
 <script setup>

@@ -10,7 +10,10 @@
       This enables animated transitions between pages globally.
     -->
     <router-view v-slot="{ Component }">
-      <transition name="page-fade" mode="out-in">
+      <transition
+        name="page-fade"
+        mode="out-in"
+      >
         <!-- The actual page component (e.g., PublicHome.vue, AdminDashboard.vue) gets rendered here -->
         <component :is="Component" />
       </transition>

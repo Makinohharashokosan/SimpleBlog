@@ -1,6 +1,7 @@
 package com.skualeilu.blog.security;
 
-import org.springframework.security.core.userdetails.User;
+import com.skualeilu.blog.entity.User;
+import com.skualeilu.blog.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,18 +12,18 @@ import java.util.ArrayList;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final AdminConfig adminConfig;
+    private final UserRepository userRepository;
 
-    public UserDetailsServiceImpl(AdminConfig adminConfig) {
-        this.adminConfig = adminConfig;
+    public UserDetailsServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        if (adminConfig.getUsername().equals(username)) {
-            return new User(adminConfig.getUsername(), adminConfig.getPassword(), new ArrayList<>());
-        } else {
-            throw new UsernameNotFoundException("User not found with username: " + username);
-        }
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
+
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+                new ArrayList<>());
     }
 }

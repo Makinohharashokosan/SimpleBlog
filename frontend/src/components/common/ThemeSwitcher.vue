@@ -1,8 +1,8 @@
 <template>
   <button 
-    @click="toggleTheme" 
     class="theme-switcher artistic-touch" 
-    :aria-label="`Switch to ${nextTheme} mode`"
+    :aria-label="`Switch to ${nextTheme} mode`" 
+    @click="toggleTheme"
   >
     <div class="icon-wrapper">
       <!-- 
@@ -18,8 +18,20 @@
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.2" fill="none"/>
-        <path d="M12 1V4 M12 20V23 M1 12H4 M20 12H23 M4.2 4.2L6.5 6.5 M17.5 17.5L19.8 19.8 M4.2 19.8L6.5 17.5 M17.5 6.5L19.8 4.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/>
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+          stroke="currentColor"
+          stroke-width="1.2"
+          fill="none"
+        />
+        <path
+          d="M12 1V4 M12 20V23 M1 12H4 M20 12H23 M4.2 4.2L6.5 6.5 M17.5 17.5L19.8 19.8 M4.2 19.8L6.5 17.5 M17.5 6.5L19.8 4.2"
+          stroke="currentColor"
+          stroke-width="1.2"
+          stroke-linecap="square"
+        />
       </svg>
       
       <!-- Artistic Moon (Crescent) -->
@@ -29,7 +41,13 @@
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" fill="none"/>
+        <path
+          d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"
+          stroke="currentColor"
+          stroke-width="1.2"
+          stroke-linejoin="round"
+          fill="none"
+        />
       </svg>
     </div>
   </button>

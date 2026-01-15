@@ -1,9 +1,17 @@
 <template>
   <div class="pagination-controls">
-    <button @click="changePage(currentPage - 1)" :disabled="isFirst" class="pagination-btn">
+    <button
+      :disabled="isFirst"
+      class="pagination-btn"
+      @click="changePage(currentPage - 1)"
+    >
       上一页
     </button>
-    <button @click="changePage(currentPage + 1)" :disabled="isLast" class="pagination-btn">
+    <button
+      :disabled="isLast"
+      class="pagination-btn"
+      @click="changePage(currentPage + 1)"
+    >
       下一页
     </button>
   </div>

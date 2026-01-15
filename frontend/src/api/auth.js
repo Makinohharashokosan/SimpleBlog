@@ -7,3 +7,19 @@ import api from './index';
 export const authenticateUser = (loginRequest) => {
   return api.post('/api/auth/login', loginRequest);
 };
+
+/**
+ * 修改密码
+ * @param {object} passwordData - { oldPassword, newPassword }
+ */
+export const changePassword = (passwordData) => {
+  return api.post('/api/auth/change-password', passwordData);
+};
+
+/**
+ * 修改用户名
+ * @param {object} data - { newUsername, password }
+ */
+export const changeUsername = (data) => {
+  return api.post('/api/auth/change-username', data);
+};

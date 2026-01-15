@@ -15,3 +15,20 @@ export const getAllTags = () => {
 export const getArticlesByTag = (tagName, pageable) => {
   return api.get(`/api/tags/${tagName}/articles`, { params: pageable });
 };
+
+/**
+ * 更新标签
+ * @param {number} id - 标签ID
+ * @param {string} name - 新标签名
+ */
+export const updateTag = (id, name) => {
+  return api.put(`/api/tags/${id}`, { name });
+};
+
+/**
+ * 删除标签
+ * @param {number} id - 标签ID
+ */
+export const deleteTag = (id) => {
+  return api.delete(`/api/tags/${id}`);
+};

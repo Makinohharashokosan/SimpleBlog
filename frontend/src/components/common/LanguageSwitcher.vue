@@ -1,5 +1,9 @@
 <template>
-  <button @click="toggleLanguage" class="lang-switcher" :title="`Switch to ${nextLocale.toUpperCase()}`">
+  <button
+    class="lang-switcher"
+    :title="`Switch to ${nextLocale.toUpperCase()}`"
+    @click="toggleLanguage"
+  >
     {{ currentLocale.toUpperCase() }}
   </button>
 </template>

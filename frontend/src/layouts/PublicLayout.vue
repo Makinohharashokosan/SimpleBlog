@@ -1,59 +1,107 @@
 <template>
   <div class="public-layout">
     <!-- Sticky Glass Header -->
-    <header class="public-header" :class="{ scrolled: isScrolled }">
+    <header
+      class="public-header"
+      :class="{ scrolled: isScrolled }"
+    >
       <nav class="main-nav">
-        <router-link to="/" class="nav-link" active-class="active">
+        <router-link
+          to="/"
+          class="nav-link"
+          active-class="active"
+        >
+          <Home :size="16" />
           <span class="nav-text">{{ $t('nav.home') }}</span>
-          <span class="nav-indicator"></span>
+          <span class="nav-indicator" />
         </router-link>
-        <router-link to="/featured" class="nav-link" active-class="active">
+        <router-link
+          to="/featured"
+          class="nav-link"
+          active-class="active"
+        >
+          <Flame :size="16" />
           <span class="nav-text">{{ $t('nav.featured') }}</span>
-          <span class="nav-indicator"></span>
+          <span class="nav-indicator" />
         </router-link>
-        <router-link to="/archive" class="nav-link" active-class="active">
+        <router-link
+          to="/archive"
+          class="nav-link"
+          active-class="active"
+        >
+          <Archive :size="16" />
           <span class="nav-text">{{ $t('nav.archive') }}</span>
-          <span class="nav-indicator"></span>
+          <span class="nav-indicator" />
         </router-link>
-        <router-link to="/tags" class="nav-link" active-class="active">
+        <router-link
+          to="/tags"
+          class="nav-link"
+          active-class="active"
+        >
+          <Tags :size="16" />
           <span class="nav-text">{{ $t('nav.tags') }}</span>
-          <span class="nav-indicator"></span>
+          <span class="nav-indicator" />
         </router-link>
-        <router-link to="/about" class="nav-link" active-class="active">
+        <router-link
+          to="/about"
+          class="nav-link"
+          active-class="active"
+        >
+          <User :size="16" />
           <span class="nav-text">{{ $t('nav.about') }}</span>
-          <span class="nav-indicator"></span>
+          <span class="nav-indicator" />
         </router-link>
-        <router-link to="/search" class="nav-link" active-class="active">
+        <router-link
+          to="/search"
+          class="nav-link"
+          active-class="active"
+        >
+          <Search :size="16" />
           <span class="nav-text">{{ $t('nav.search') }}</span>
-          <span class="nav-indicator"></span>
+          <span class="nav-indicator" />
+        </router-link>
+        <router-link
+          to="/admin/login"
+          class="nav-link"
+          active-class="active"
+        >
+          <ShieldCheck :size="16" />
+          <span class="nav-text">{{ $t('nav.admin') }}</span>
+          <span class="nav-indicator" />
         </router-link>
       </nav>
       
       <div class="header-actions">
         <!-- New fancy switchers should be used here if compatible, assuming they are -->
         <LanguageSwitcher />
-        <span class="divider"></span>
+        <span class="divider" />
         <ThemeSwitcher storage-key="public-theme" />
       </div>
     </header>
 
     <main class="content">
       <router-view v-slot="{ Component }">
-        <transition name="fade-slide" mode="out-in">
+        <transition
+          name="fade-slide"
+          mode="out-in"
+        >
           <component :is="Component" />
         </transition>
       </router-view>
     </main>
 
     <footer class="public-footer">
-      <div class="footer-line"></div>
-      <p class="copyright">{{ copyrightText }} · {{ $t('footer.rights') }}</p>
+      <div class="footer-line" />
+      <p class="copyright">
+        {{ copyrightText }} · {{ $t('footer.rights') }}
+      </p>
     </footer>
   </div>
 </template>
 
 <script setup>
 import { computed, ref, onMounted, onUnmounted } from 'vue';
+import { Home, Flame, Archive, Tags, User, Search, ShieldCheck } from 'lucide-vue-next';
 import { useSettingsStore } from '@/stores/settings';
 import ThemeSwitcher from '@/components/common/ThemeSwitcher.vue';
 import LanguageSwitcher from '@/components/common/LanguageSwitcher.vue';
@@ -121,6 +169,9 @@ html.dark .public-header.scrolled {
 }
 
 .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   text-decoration: none;
   font-family: var(--font-family-display); /* Cinzel */
   font-size: 14px;

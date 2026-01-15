@@ -2,11 +2,11 @@
   <button
     class="toggle-switch"
     :class="{ 'is-active': modelValue }"
-    @click="$emit('update:modelValue', !modelValue)"
     role="switch"
     :aria-checked="modelValue"
+    @click="$emit('update:modelValue', !modelValue)"
   >
-    <span class="knob"></span>
+    <span class="knob" />
   </button>
 </template>
 

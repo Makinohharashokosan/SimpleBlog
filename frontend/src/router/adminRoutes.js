@@ -36,6 +36,15 @@ const routes = [
     component: () => import('@/views/admin/AdminArticleList.vue'),
   },
   {
+    path: '/admin/tags',
+    name: 'AdminTags',
+    meta: {
+      layout: 'AdminLayout',
+      requiresAuth: true,
+    },
+    component: () => import('@/views/admin/AdminTags.vue'),
+  },
+  {
     path: '/admin/articles/new',
     name: 'AdminArticleCreate',
     meta: {

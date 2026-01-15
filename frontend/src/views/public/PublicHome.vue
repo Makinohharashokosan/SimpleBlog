@@ -6,15 +6,22 @@
         <h1 class="blog-title">
           <span class="title-main">{{ $t('home.hero_title') }}</span>
         </h1>
-        <p class="blog-subtitle">{{ $t('home.hero_subtitle') }}</p>
-        <div class="hero-line"></div>
+        <p class="blog-subtitle">
+          {{ $t('home.hero_subtitle') }}
+        </p>
+        <div class="hero-line" />
       </div>
     </header>
 
     <!-- 2. Featured Section (if available) -->
-    <section v-if="featuredArticles.length" class="featured-section">
+    <section
+      v-if="featuredArticles.length"
+      class="featured-section"
+    >
       <div class="section-header">
-        <h2 class="section-title">{{ $t('home.featured') }}</h2>
+        <h2 class="section-title">
+          {{ $t('home.featured') }}
+        </h2>
         <span class="section-subtitle">Curated for you</span>
       </div>
       <div class="featured-grid">
@@ -31,9 +38,14 @@
     <!-- 3. Main Content Area (2 Columns) -->
     <div class="main-content">
       <!-- Left Column: Latest Posts -->
-      <main class="latest-posts" :style="{ '--delay': '400ms' }">
+      <main
+        class="latest-posts"
+        :style="{ '--delay': '400ms' }"
+      >
         <div class="section-header">
-          <h2 class="section-title">{{ $t('home.latest') }}</h2>
+          <h2 class="section-title">
+            {{ $t('home.latest') }}
+          </h2>
         </div>
         
         <div class="posts-list">
@@ -48,7 +60,10 @@
         
         <!-- View All Link -->
         <div class="view-all-wrapper">
-          <router-link to="/archive" class="view-all-btn">
+          <router-link
+            to="/archive"
+            class="view-all-btn"
+          >
             {{ $t('common.read_more') }}
             <span class="arrow">→</span>
           </router-link>
@@ -56,13 +71,28 @@
       </main>
 
       <!-- Right Column: Sidebar -->
-      <aside class="sidebar" :style="{ '--delay': '600ms' }">
+      <aside
+        class="sidebar"
+        :style="{ '--delay': '600ms' }"
+      >
         <!-- Trending Module -->
-        <div v-if="trendingArticles.length" class="sidebar-module">
-          <h3 class="module-title">{{ $t('home.trending') }}</h3>
+        <div
+          v-if="trendingArticles.length"
+          class="sidebar-module"
+        >
+          <h3 class="module-title">
+            {{ $t('home.trending') }}
+          </h3>
           <ol class="trending-list">
-            <li v-for="article in trendingArticles" :key="article.id" class="trending-item">
-              <router-link :to="`/article/${article.id}`" class="trending-link">
+            <li
+              v-for="article in trendingArticles"
+              :key="article.id"
+              class="trending-item"
+            >
+              <router-link
+                :to="`/article/${article.id}`"
+                class="trending-link"
+              >
                 <span class="rank-number">0{{ trendingArticles.indexOf(article) + 1 }}</span>
                 <span class="link-text">{{ article.title }}</span>
               </router-link>
@@ -71,8 +101,13 @@
         </div>
         
         <!-- Tag Cloud Module -->
-        <div v-if="tags.length" class="sidebar-module">
-          <h3 class="module-title">{{ $t('home.tag_cloud') }}</h3>
+        <div
+          v-if="tags.length"
+          class="sidebar-module"
+        >
+          <h3 class="module-title">
+            {{ $t('home.tag_cloud') }}
+          </h3>
           <div class="tag-cloud">
             <router-link
               v-for="tag in tags"
