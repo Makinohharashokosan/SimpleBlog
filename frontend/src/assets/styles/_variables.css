@@ -1,0 +1,44 @@
+/* src/assets/styles/_variables.css */
+
+:root {
+    /* 调色板 - 日间主题 (Day Theme) */
+    --color-main-bg: #FDFDFD;
+    --color-primary-text: #333333;
+    --color-functional-element: #000000;
+    --color-secondary-structure: #888888;
+    --color-card-shadow: rgba(0, 0, 0, 0.08);
+
+    /* 字体排印 */
+    /* 字体排印 */
+    /* UI / 现代几何 (极简高冷) */
+    --font-family-sans-serif: 'Montserrat', sans-serif;
+    /* 阅读 / 现代几何 (保持一致性) */
+    --font-family-serif: 'Montserrat', sans-serif;
+    /* 标题 / 古典雕刻感 (这种字体非常有"权力的游戏"那种史诗感) */
+    --font-family-display: 'Cinzel', serif;
+    /* 艺术 / 极致的花体手写 (这才是真正的艺术斜体) */
+    --font-family-artistic: 'Pinyon Script', cursive;
+
+    /* 结构与间距 */
+    --spacing-base: 8px;
+    --layout-max-width-content: 720px;
+    --layout-max-width-list: 800px;
+    --layout-max-width-dashboard: 1200px;
+
+    /* 动画 */
+    --animation-duration-fast: 200ms;
+    --animation-duration-normal: 300ms;
+    --animation-duration-slow: 400ms;
+    --animation-timing-function: ease-in-out;
+}
+
+/* 通过在 <html> 元素上添加 class="dark" 来激活夜间主题 */
+html.dark {
+    /* 调色板 - 夜间主题 (Night Theme) */
+    --color-main-bg: #111111;
+    --color-primary-text: #CCCCCC;
+    --color-functional-element: #FFFFFF;
+    --color-secondary-structure: #888888;
+    /* 恒定灰 */
+    --color-card-shadow: rgba(0, 0, 0, 0.25);
+}
