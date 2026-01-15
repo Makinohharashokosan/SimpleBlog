@@ -1,0 +1,52 @@
+server:
+  port: 8080 # 应用监听的端口
+
+spring:
+  # 数据库数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: ${db.username}
+    password: ${db.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA (Hibernate) 配置
+  jpa:
+    hibernate:
+      # 在启动时，根据实体类自动更新数据库结构 (开发时可用 'update', 生产环境推荐 'validate' 或 'none')
+      ddl-auto: validate
+    # 在控制台显示执行的 SQL 语句，方便调试
+    show-sql: true
+    properties:
+      hibernate:
+        # 格式化显示的 SQL
+        format_sql: true
+    open-in-view: false
+
+  # Flyway 数据库迁移配置
+  flyway:
+    # 启用 Flyway
+    enabled: true
+    # Flyway 将会自动查找并执行 src/main/resources/db/migration 目录下的 SQL 脚本
+    locations: classpath:db/migration
+
+# Springdoc OpenAPI (Swagger UI) 配置
+springdoc:
+  api-docs:
+    path: /api-docs # OpenAPI 3.0 规范的 JSON 文件路径
+  swagger-ui:
+      path: /swagger-ui.html # Swagger UI 页面的访问路径
+
+app:
+  security:
+    # 博客所有者的登录凭证
+    admin:
+      username: "admin"
+      # 密码是 "password"。这里是BCrypt加密后的值。
+      # 在实际生产中，你应该用自己的密码替换 "password"，然后用BCrypt生成工具得到新哈希值
+      # 在线生成工具: https://www.bcryptcalculator.com/
+      password: ${admin.password.hash} # 密码哈希已移至 secrets.json
+    jwt:
+      # 用于签发和验证JWT的密钥，生产环境中必须是一个更长、更复杂的随机字符串
+      secret: ${jwt.secret}
+      # Token的有效期 (毫秒)，这里设置为1天
+      expiration-ms: 86400000
